@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        h1{
+            text-align: center;
+            font-size: small;
+        }
+          body {
+            background-color: rgba(209, 230, 173, 0.863);
+        }
+        button {
+            background-color: rgba(73, 128, 0, 0.555);
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: rgba(0, 100, 82, 0.731);
+    </style>
+    <script>
+   
+    function fetchJoke(category) {
+        fetch(`https://api.chucknorris.io/jokes/random?category=${category}`)
+        
+        .then(response => response.json())
+        .then(json => document.getElementById("chucks").innerHTML = json.value)
+        .catch(error => console.log('Unable to reach URL: ' + error));
+    }
+
+    
+ 
+    </script>
+</head>
+<body>
+    <h1>HELLO THIS WEBSITE SHOW YOU JOKES WHEN YOU CLICK ON THE DIFFRENT CATEGORY</h1>
+    <label>What's Chuck doing today?</label>
+    <p id="chucks"></p>
+    <div id="buttons">
+        <button onclick="fetchJoke('animal')"> Animal Joke</button>
+    <button onclick="fetchJoke('celebrity')">Celebrity Joke</button>
+    <button onclick="fetchJoke('food')">food Joke</button>
+    <button onclick="fetchJoke('fashion')">Fashion Joke</button>
+    <button onclick="fetchJoke('history')"> history Joke</button>
+    <button onclick="fetchJoke('money')">money Joke</button>
+    <button onclick="fetchJoke('travel')">travel Joke</button>
+    <button onclick="fetchJoke('sport')">Sport Joke</button>
+    <button onclick="fetchJoke('animal')"> Animal Joke</button>
+    <button onclick="fetchJoke('celebrity')">Celebrity Joke</button>
+    <button onclick="fetchJoke('religion')">Religion Joke</button>
+    <button onclick="fetchJoke('science')">Scenice Joke</button>
+
+
+    </div>
+
+</body>
+</html>
